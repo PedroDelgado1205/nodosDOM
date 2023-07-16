@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+ 
+    <title>Dinamico</title>
+</head>
+<body>
+    <h1 class="title has-text-center">Input dinámico</h1>
+    <main class="container">
+        <form action="" id="frmUser">
+            <div class="field is-grouped">
+                <div class="control has-icons-left has-icons-right">
+                  <input id="name" name="name" class="input is-success" type="text" placeholder="Name" value="Cristian" autocomplete="off">
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-user"></i>
+                  </span>
+                  <span class="icon is-small is-right">
+                    <i class="fas fa-check"></i>
+                  </span>
+                </div>
+
+                <div class="control has-icons-left has-icons-right">
+                    <input id="lastName" name="lastName" class="input is-success" type="text" placeholder="Last Name" value="Paguay" autocomplete="off">
+                    <span class="icon is-small is-left">
+                      <i class="fas fa-user"></i>
+                    </span>
+                    <span class="icon is-small is-right">
+                      <i class="fas fa-check"></i>
+                    </span>
+                  </div>
+                </div>
+                <div class="control">
+                    <button id="btnAdd" type="button" class="button is-danger">
+                        <span class="icon is-small">
+                        <i class="fas fa-plus"></i>
+                        </span>
+                    </button>
+
+                    <button id="btnJson" class="button" type="button">
+                        <span class="icon is-small">
+                            <i class="fas fa-flag-checkered"></i>
+                        </span>
+                        <b>JSON</b>
+                    </button>
+                    <div id="json">
+                    </div>
+                </div>  
+                
+            </div>
+        </form>
+        <hr>
+        <section id="datos" class="datos">
+
+        </section>
+
+        
+    </main>
+    <script src="main.js"></script>
+</body>
+</html>
