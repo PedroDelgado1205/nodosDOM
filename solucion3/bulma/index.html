@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
   <title>Formulario</title>
   <style>
     table {
@@ -21,20 +22,28 @@
   <h1>Formulario</h1>
 
   <form id="myForm">
-    <label for="nombre">Nombre:</label>
-    <input type="text" id="nombre" required><br>
-
-    <label for="apellido">Apellido:</label>
-    <input type="text" id="apellido" required><br>
-
-    <label for="ciudad">Ciudad:</label>
-    <input type="text" id="ciudad" required><br>
-
-    <label for="telefono">Teléfono:</label>
-    <input type="text" id="telefono" required><br>
-
+      <div class="field is-grouped">
+      <div class="control has-icons-left">
+        <label for="nombre">Nombre:</label>
+          <input id="nombre" class="input" name="name" type="text" placeholder="nombre" autocomplete="off">
+      </div>
+      <div class="control has-icons-left">
+        <label for="apellido">Apellido:</label>
+          <input id="apellido" class="input" name="lastName" type="text" placeholder="edad" autocomplete="off">
+      </div>
+      <div class="control has-icons-left">
+        <label for="ciudad">Ciudad:</label>
+          <input id="ciudad" class="input" name="name" type="text" placeholder="nombre" autocomplete="off">
+      </div>
+      <div class="control has-icons-left">
+        <label for="telefono">Teléfono:</label>
+          <input id="telefono" class="input" name="lastName" type="text" placeholder="edad" autocomplete="off">
+      </div>
+  </div>
     <div class="button-container">
-      <button type="button" onclick="agregarRegistro()">Guardar</button>
+      <button id="btnSave" type="button" class="button is-primary is-outlined" onclick="agregarRegistro()">
+        Guardar
+      </button>
     </div>
   </form>
 
@@ -72,8 +81,9 @@
       cell4.innerHTML = telefono;
 
       var cell5 = row.insertCell(4);
-      cell5.innerHTML = '<button onclick="editarRegistro(this)">Editar</button> ' +
-                        '<button onclick="eliminarRegistro(this)">Eliminar</button>';
+      
+      cell5.innerHTML = '<button type="button" class="button is-primary is-outlined" onclick="editarRegistro(this)">Editar</button> ' +
+                        '<button type="button" class="button is-primary is-outlined" onclick="eliminarRegistro(this)">Eliminar</button>';
 
       // Restablecer los valores del formulario
       document.getElementById('myForm').reset();
