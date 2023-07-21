@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <title>Formulario</title>
   <style>
     table {
@@ -21,22 +26,31 @@
   <h1>Formulario</h1>
 
   <form id="myForm">
-    <label for="nombre">Nombre:</label>
-    <input type="text" id="nombre" required><br>
-
-    <label for="apellido">Apellido:</label>
-    <input type="text" id="apellido" required><br>
-
-    <label for="ciudad">Ciudad:</label>
-    <input type="text" id="ciudad" required><br>
-
-    <label for="telefono">Teléfono:</label>
-    <input type="text" id="telefono" required><br>
-
-    <div class="button-container">
-      <button type="button" onclick="agregarRegistro()">Guardar</button>
-    </div>
-  </form>
+    <div class="row">
+      <form class="col s12">
+      <div class="row">
+          <div class="input-field col s6">
+            <label for="nombre">Nombre:</label>
+              <input id="nombre" type="text" class="validate" placeholder="nombre">
+          </div>
+          <div class="input-field col s6">
+            <label for="apellido">Apellido:</label>
+              <input id="apellido" type="text" class="validate" placeholder="edad">
+          </div>
+          <div class="input-field col s6">
+            <label for="ciudad">Ciudad:</label>
+              <input id="ciudad" type="text" class="validate" placeholder="telefono">
+          </div>
+          <div class="input-field col s6">
+            <label for="telefono">Teléfono:</label>
+              <input id="telefono" type="tel" class="validate" placeholder="direccion">
+          </div>
+      </div>
+      <div class="button-container">
+        <a id="btnSave" class="waves-effect waves-light btn" onclick="agregarRegistro()">Guardar</a>
+      </div>
+      </form>
+  </div>
 
   <h2>Registros</h2>
   <table id="registros">
@@ -72,8 +86,9 @@
       cell4.innerHTML = telefono;
 
       var cell5 = row.insertCell(4);
-      cell5.innerHTML = '<button onclick="editarRegistro(this)">Editar</button> ' +
-                        '<button onclick="eliminarRegistro(this)">Eliminar</button>';
+      
+      cell5.innerHTML = '<a class="waves-effect waves-light btn" onclick="editarRegistro(this)">Editar</a>' +
+                        '<a class="waves-effect waves-light btn" onclick="eliminarRegistro(this)">Eliminar</a>';
 
       // Restablecer los valores del formulario
       document.getElementById('myForm').reset();
