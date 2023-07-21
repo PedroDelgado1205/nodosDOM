@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <title>Form</title>
+    <script>
+        class Persona{
+            constructor(name,ape, dir, telf){
+                this.name = name
+                this.ape = ape
+                this.dir = dir
+                this.telf = telf;
+            }
+        }
+
+    </script>
+    <style>
+        .form{
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+        }
+        .form-ingreso{
+            background: rgba(53, 51, 51,0.9);
+            border-radius: 5px;
+            padding: 10px;
+            width: 40%;
+            border: 2px solid rgb(14, 13, 13);
+        }
+
+        .form-ingreso div{
+            padding: 5px;
+            margin: 3px 5px;
+            border-radius: 2px;
+            display: flex;
+            justify-content: space-between;
+            text-align: center;
+        }
+        .datos b{
+            color: white;
+            display: block;
+            margin: 0;
+            padding: 5px;
+            background: red;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            text-align: center;
+            position: relative;
+            width: 50px;
+            left: 10%;
+
+        }
+        .form-ingreso div label{
+            margin-bottom: 3px;
+            text-align: justify;
+            font-weight: bold;
+            color: rgb(216, 211, 211);
+        }
+
+        .datos div{
+            display: grid;
+            grid-template-columns: repeat(5,1fr) ;
+            align-items: center;
+            padding: 3px;
+        }
+        .datos div:first-child{
+            background-color: bisque;
+            font-weight: bold;
+        }
+        .datos div{
+            text-align: center;
+            border: 1px solid black;
+        }
+        .datos div > span{
+            border-left: 1ps solid rgb(204, 65, 65);
+        }
+        .btn{
+            border:none;
+            padding: 5px;
+            background: green;
+            font-weight: bold;
+            color: white;
+            margin: 5px;
+        }
+        .btn:hover{
+           cursor: pointer;
+           border-radius: 5px;
+           background: brown;
+           
+        }
+    </style>
+</head>
+<body>
+    <section id="principal" class="form">
+        <div class="form-ingreso">
+            <form id="myForm">
+                <div class="field">
+                    <table>
+                        <th>
+                            <label for="nombre">Nombre:</label>
+                            <input id="name" class="input" name="name" type="text" placeholder="nombre" autocomplete="off">
+                        </th>
+                        <th>
+                            <label for="apellido">Apellido:</label>
+                            <input id="ape" class="input" name="lastName" type="text" placeholder="edad" autocomplete="off">
+                        </th>
+                        <th>
+                            <label for="ciudad">Dirección:</label>
+                            <input id="dir" class="input" name="name" type="text" placeholder="nombre" autocomplete="off">
+                        </th> 
+                        <th>
+                            <label for="telefono">Teléfono:</label>
+                            <input id="tel" class="input" name="lastName" type="text" placeholder="edad" autocomplete="off">
+                        </th>
+                    </table>
+                <div class="button-container">
+                    <button id="agregar" type="button" class="button is-primary is-outlined" onclick="agregarRegistro()">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </section>
+    <section id="datos" class="datos">
+
+    </section>
+    <section id="editar">
+
+    </section>
+    
+    <script>
+        const miLista=[];
+        const btn= document.getElementById("agregar");
+        const campos = document.querySelectorAll(".form div input")
+        btn.addEventListener("click",(e)=>{            
+            miLista.push(new Persona(campos[0].value,campos[1].value,campos[2].value,campos[3].value ))
+            mostrar()
+        })
+        
+       /* let p1 = new Persona("Cristian","Paguay","Biblian","0984122438")
+         console.log(typeof(p1),p1)*/
+       
+        const mostrar=()=>{
+            const div=document.getElementById("datos")
+                    
+            let datos = "<div> <span>Nombre</span> <span>Apellido</span> <span>Dirección</span> <span>Teléfono</span><span>Acciones</span></div>"
+            miLista.forEach((v,i)=>{
+                console.log("v:"+i+"->"+ "name" + ":"+ v.ape+"| ape:"+v.ape)
+                datos+=`<div> <span>${v.name}</span><span> ${v.ape}</span><span> ${v.dir}</span><span> ${v.telf}</span> <span><button class='btn' onclick='edit(${i})'>Edit</button><button class='btn' onclick='del(${i})'>Del</button></span></div>
+                `
+            })
+            datos+=` <b>${miLista.length}</b>`
+            div.innerHTML= datos
+        }
+        function edit(n) {
+            const campos = document.querySelectorAll(".form div input")
+            campos[0].value=miLista[n].name
+            campos[1].value=miLista[n].ape
+            campos[2].value=miLista[n].dir
+            campos[3].value=miLista[n].telf
+            miLista.splice(n,1)
+        } 
+        function del(n){
+            miLista.splice(n,1)
+            mostrar()
+        }
+
+    </script>
+</body>
+</html>
