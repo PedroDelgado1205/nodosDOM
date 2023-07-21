@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Input dynamic</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title has-text-centered">Input Dinámico</h1>
+        <div id="jsonDiv">
+            
+        </div>
+        <form action="" id="frmUsers" class="pure-form">
+            <label class="label">Username</label>
+            <div class="field is-grouped">
+                <input class="input" name="name" type="text" placeholder="Name" />
+                <input class="input" name="lastName" type="text" placeholder="Lastname" />
+                <div class="control">
+                    <a id="btnAdd" class="waves-effect waves-light btn">
+                        <span class="icon is-small">
+                            <i class="fas fa-plus"></i>
+                        </span>
+                    </a>
+                    <a id="btnSave" class="waves-effect waves-light btn">
+                        <span class="icon is-small">
+                            <i class="fas fa-download"></i>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </form>
+        <hr>
+        <div id="divElements">
+
+        </div>
+    </div>
+    <script src="JS/main.js"></script>
+</body>
+</html>
